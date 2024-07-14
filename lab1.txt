@@ -1,0 +1,27 @@
+first week lecture notes -
+
+ topics covered - git , git branch, git command lines
+ git version - to see the version detail
+ pwd - to seee the current working directory
+ ls - to list the file content 
+ rmdir - to delete a folder
+ cd - to change a directory
+ cd .. - going back one folder
+ touch - to create a file
+ rm - to remove a file
+ cp [file name][destination file name] - to copy a file
+ mv [old name][new name] - rename a file
+ mv [file] [new destination] - to move a file
+ git  init - initialization
+ git status - to check the status 
+ git add . - add files toa  staging area
+ git commit -m " commit message"  - to commit 
+ git log - to see the log details 
+ git add file path = to just only add one file to staging area
+ git branch -to see which branch 
+ git checkout branch name - to sign out from a branch
+ git merge - to merge branches 
+ git log - to see the log details   
+ git clone- to clone a repository
+ git pull - to pull a repository 
+
