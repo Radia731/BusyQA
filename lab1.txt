@@ -24,4 +24,5 @@ first week lecture notes -
  git log - to see the log details   
  git clone- to clone a repository
  git pull - to pull a repository 
+ git branch -D branchname -- to delete a branch
 
