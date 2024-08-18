@@ -1,5 +1,6 @@
-lab work description 
-built a basic navigation menue with css features
-utilized font awesome for the header and footer logos
-used box-shadow and border-style attribute to create the green shadow effect for the header and footer.
-used border-radius to create the curved border.
+Lab Work Description:
+
+Built a basic navigation menu with CSS features.
+Utilized Font Awesome for the header and footer logos.
+Used the box-shadow and border-style attributes to create the green shadow effect for the header and footer.
+Used border-radius to create the curved border.
