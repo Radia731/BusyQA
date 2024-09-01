@@ -32,7 +32,7 @@ shoppingCart.calculateTotal = function(){
     return total;
 };
 
-//adding discount
+//adding discount with error message for invalid code
 
 shoppingCart.applyDiscountCode = function(code){
     if (code !== 'SAVE10' && code !== 'SAVE20') {
