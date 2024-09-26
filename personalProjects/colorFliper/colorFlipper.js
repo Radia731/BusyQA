@@ -13,3 +13,4 @@ function randomColor() {
     body.style.backgroundColor = color;
   
 }
+

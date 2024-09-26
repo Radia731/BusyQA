@@ -1,57 +1,73 @@
 * {
-    margin: 0;
+    margin: 2px;
     padding: 0;
     box-sizing: border-box;
 }
 
 
+
+html,
 body {
     font-family: 'Verdana', Geneva, sans-serif;
     background-color: #f7f7f7;
     color: #333;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+
+
 }
 
 .app {
     text-align: center;
     padding: 2px;
     background-color: #fff;
+
+
 }
 
-h1 {
+.app h1 {
     color: #fc7300;
     font-size: large;
     margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: x-large;
 }
 
 input,
 select {
-    width: 250ps;
+    width: 250px;
     height: 29px;
-    margin: 19px;
+    margin: 10px;
     border-radius: 5px;
+    border-color: #333;
     padding: 5px;
     font-size: large;
     box-shadow: inset 0px 0px 10px 2px rgb(250, 248, 248);
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
     background-color: #fc7300;
     color: #050505;
+
 }
 
-#crypto-container {
+.crypto-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 1px;
+    gap: 5px;
+    padding: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 5px;
+    max-width: 800px;
+    padding: 5px;
 }
 
 .crypto-card {
     background-color: #fc7300;
     color: rgb(3, 3, 3);
     border-radius: 20px;
-    padding: 2px;
-    width: 200px;
+    padding: 5px;
+    width: 150px;
     box-shadow: 0px 4px 6px rgba(248, 247, 246, 0.8);
     text-align: center;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -64,22 +80,29 @@ select {
 }
 
 
+.crypto-card img {
+    margin-bottom: 2px;
+    size: 5rem;
 
-
-.crypto-card h2 {
-    margin-bottom: 1px;
-    font-size: larger;
 }
 
 
-.crypto-card p {
-    margin: 0.5px;
+.crypto-card h2 {
+    margin-bottom: 2px;
+
     font-size: large;
 }
 
 
+.crypto-card p {
+
+    font-size: large;
+    padding-bottom: 5px;
+}
+
+
 @media (max-width: 768px) {
-    #crypto-container {
+    .crypto-container {
         flex-direction: column;
         align-items: center;
     }
