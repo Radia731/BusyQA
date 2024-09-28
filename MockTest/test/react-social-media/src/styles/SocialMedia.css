@@ -1,0 +1,22 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+
+    color: aliceblue;
+    background-color: rgb(220, 191, 191);
+
+}
+
+.feed h1 {
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+}
+
+.like-button,
+button {
+    color: pink;
+    background-color: rgb(227, 104, 164);
+}
