@@ -1,9 +1,8 @@
 * {
-    margin: 2px;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 
 html,
@@ -22,7 +21,7 @@ body {
     text-align: center;
     padding: 2px;
     background-color: #fff;
-
+    box-sizing: border-box;
 
 }
 
@@ -37,7 +36,6 @@ body {
 input,
 select {
     width: 250px;
-    height: 29px;
     margin: 10px;
     border-radius: 5px;
     border-color: #333;
@@ -52,14 +50,12 @@ select {
 
 .crypto-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding: 10px;
+    gap: 8px;
+    padding: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 5px;
-    max-width: 800px;
-    padding: 5px;
+    margin-top: 10px;
+    max-width: 1000px;
 }
 
 .crypto-card {
@@ -67,10 +63,12 @@ select {
     color: rgb(3, 3, 3);
     border-radius: 20px;
     padding: 5px;
-    width: 150px;
+    width: 180px;
     box-shadow: 0px 4px 6px rgba(248, 247, 246, 0.8);
     text-align: center;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
+    font-size: small;
+
 
 }
 
@@ -82,7 +80,7 @@ select {
 
 .crypto-card img {
     margin-bottom: 2px;
-    size: 5rem;
+    size: 3rem;
 
 }
 
@@ -90,14 +88,14 @@ select {
 .crypto-card h2 {
     margin-bottom: 2px;
 
-    font-size: large;
+    font-size: smaller;
 }
 
 
 .crypto-card p {
 
-    font-size: large;
-    padding-bottom: 5px;
+    font-size: smaller;
+    padding: 5px;
 }
 
 
@@ -105,9 +103,15 @@ select {
     .crypto-container {
         flex-direction: column;
         align-items: center;
+        padding: 5px;
     }
 
     .crypto-card {
         width: 70%;
+    }
+
+    input,
+    select {
+        width: 90%;
     }
 }
