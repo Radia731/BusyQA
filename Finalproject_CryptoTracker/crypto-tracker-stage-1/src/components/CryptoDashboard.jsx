@@ -5,42 +5,6 @@ import CryptoCard from "./CryptoCard";
 
 
 
-//////------creating an object to store the data in real time ------//////
-
-// const cryptoCoins= [{
-
-//   Name: "Bitcoin",
-//   price: "$234567",
-//   marketCap: "$123456765432",
-//   change: "6.54%",
-//   volume: "$23,244,244",
-//   Icon: "https://assets.coingecko.com/coins/images/1/standard/bitcoin.png?1696501400"
-// }, {
-//   Name: "Ethereum",
-//   price: "$234567",
-//   marketCap: "$123456765432",
-//   change: "6.54%",
-//   volume: "$23,244,244",
-//   Icon: "https://assets.coingecko.com/coins/images/279/standard/ethereum.png?1696501628"
-// }, {
-//   Name: "Dogecoin",
-//   price: "$234567",
-//   marketCap: "$123456765432",
-//   change: "6.54%",
-//   volume: "$23,244,244",
-//   Icon: "https://assets.coingecko.com/coins/images/5/standard/dogecoin.png?1696501409"
-// }, {
-// }, {
-//   Name: "Solana",
-//   price: "$234567",
-//   marketCap: "$123456765432",
-//   change: "6.54%",
-//   volume: "$23,244,244",
-//   Icon: "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1718769756"}
-// ];
-
-
-
 const coinMarketCapApiKey = 'e4d176e0-adfb-41ab-82d4-f67a95893eac'
 const coinMarketCapApiurl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
@@ -50,24 +14,32 @@ const coinMarketCapApiurl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency
 const CryptoDashboard = () => {
   
   const [coinData, setCoinData] = useState([]);
+  const [filterData, setFilterData] = useState([])
+  const [sortType, setSortType] = useState(["market_cap"])
   const [isLoading, setisLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const handleSortType = (sortType) => {
+    console.log(`sort type changeed... ${sortType}`)
+
+    setSortType(sortType)
+  }
 
     const handleSearch = (searchText) => {
       if (searchText === "") {
 
         alert(`Enter a crypto coin to search`)
 
-        setCoinData(data);
+        setFilterData(coinData);
         return;
       }
   //filtering the coins 
-  const filtered = coinData.filter((coin) =>
+  const filtered = coinData?.filter((coin) =>
   coin.name.toLowerCase().includes(searchText.toLowerCase())
 );
 
       //  console.log(filterCoins);
-      setFilteredCoins(filtered)
+      setFilterData(filtered)
 
   }
 
@@ -99,9 +71,10 @@ const CryptoDashboard = () => {
       if(!response.ok){
         throw new Error (`there was an error loading the data...`)
       }
-      const data = await response.json();
-      console.log(`coin market data ${data}`)
-      setCoinData(data);
+      const rawData = await response.json();
+      console.log(`coin market data ${JSON.stringify(rawData)}`)
+      setCoinData(rawData.data);
+      setFilterData(rawData.data);
      }
 
      
@@ -126,13 +99,14 @@ const CryptoDashboard = () => {
       <>
         <div className="app">
             <h1>Crypto Coin Tracker</h1> 
-            <SearchPanel  searchCallback={handleSearch} />
+            <SearchPanel  searchCallback={handleSearch}
+            sortTypeCallback={handleSortType} />
             
           {/* Adding the card div */}
           <div className="crypto-container">
                 
            { 
-              coinData.data.map((currentCoin) => {
+              filterData?.map((currentCoin) => {
              return <CryptoCard {...currentCoin} 
                  />
            })

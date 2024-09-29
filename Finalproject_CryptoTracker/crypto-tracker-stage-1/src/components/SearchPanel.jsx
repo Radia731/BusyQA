@@ -7,8 +7,10 @@ import {useState}  from 'react';
       const handleClick =()=> {
         props.searchCallback(searchText)
          }
-      const handleSelectChange =()=> {  
-              alert('select Change')
+      const handleSortTypeChange = (event)=> {  
+            //   alert('select Change')
+
+            props.sortTypeCallback(event.target.value)
          }
       const handleKeyDown = (e) =>{  
           if (e.keyCode === 13){
@@ -31,7 +33,7 @@ import {useState}  from 'react';
           type="text" 
           placeholder="Search Cryptocurrency" 
           value={searchText} />
-            <select onChange={handleSelectChange}>
+            <select onChange={handleSortTypeChange}>
                 <option value="market_cap">Market Cap</option>
                 <option value="current_price">Price</option>
                 <option value="total_volume">24h Volume</option>
