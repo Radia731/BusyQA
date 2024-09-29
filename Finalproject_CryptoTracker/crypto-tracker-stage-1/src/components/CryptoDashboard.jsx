@@ -52,7 +52,6 @@ const CryptoDashboard = () => {
   const [coinData, setCoinData] = useState([]);
   const [isLoading, setisLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [filteredCoins, setFilteredCoins] = useState([]);
 
     const handleSearch = (searchText) => {
       if (searchText === "") {
@@ -83,14 +82,16 @@ const CryptoDashboard = () => {
 
     console.log(`fetch data...`);
      try {
-
       const response = await fetch(coinMarketCapApiurl, {
         headers: {
           
-          "X-CMC_PRO_API_KEY": coinMarketCapApiKey
+          'X-CMC_PRO_API_KEY': coinMarketCapApiKey
 
         },
         params: {
+          start: 1,
+          limit: 10,
+          Convert: 'USD'
 
         }
       }) ;
@@ -99,7 +100,7 @@ const CryptoDashboard = () => {
         throw new Error (`there was an error loading the data...`)
       }
       const data = await response.json();
-      
+      console.log(`coin market data ${data}`)
       setCoinData(data);
      }
 
@@ -119,7 +120,7 @@ const CryptoDashboard = () => {
     return <div style={{text: 'center'}}>Loading.....</div>
   }
   if (error){
-    return <div style={{text: 'center'}}> { error } </div>
+    return <div style={{text: 'center'}}> { error.message} </div>
   }
     return (
       <>

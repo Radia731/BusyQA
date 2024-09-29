@@ -115,3 +115,9 @@ select {
         width: 90%;
     }
 }
+
+.Navigation-container {
+
+    display: flex;
+    justify-content: center;
+}

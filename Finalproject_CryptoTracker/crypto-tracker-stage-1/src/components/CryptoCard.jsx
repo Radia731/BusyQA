@@ -2,6 +2,9 @@
 
 const CryptoCard = (props) => {
 
+    const handleAddWatchList =() => {
+        alert(`Add to watchlist`)
+    }
     return <> 
          <div className="crypto-card">
          <img
@@ -15,6 +18,7 @@ const CryptoCard = (props) => {
                 <p> Market Cap:{props.quote.USD.market_cap.toLocaleString()} </p>
                 <p>24h Volume:{props.quote.USD.volume_24h.toLocaleString()}  </p>
                 <p>24h Change:{props.quote.USD.percent_change_24h.toLocaleString()}</p>
+                <button onClick={handleAddWatchList}> Add Watchlist</button>
             </div>
 
     </>
