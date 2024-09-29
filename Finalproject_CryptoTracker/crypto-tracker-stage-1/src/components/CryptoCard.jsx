@@ -1,8 +1,9 @@
-
+// // import '@fortawesome/fontawesome-free/css/all.min.css';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const CryptoCard = (props) => {
 
-    const handleAddWatchList =() => {
+    const handleAddWatchList = () => {
         alert(`Add to watchlist`)
     }
     return <> 
@@ -18,7 +19,7 @@ const CryptoCard = (props) => {
                 <p> Market Cap:{props.quote.USD.market_cap.toLocaleString()} </p>
                 <p>24h Volume:{props.quote.USD.volume_24h.toLocaleString()}  </p>
                 <p>24h Change:{props.quote.USD.percent_change_24h.toLocaleString()}</p>
-                <button onClick={handleAddWatchList}> Add Watchlist</button>
+                <button onClick={handleAddWatchList}> Add to watchList</button>
             </div>
 
     </>

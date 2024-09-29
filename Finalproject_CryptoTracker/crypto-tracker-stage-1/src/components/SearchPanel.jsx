@@ -17,15 +17,13 @@ import {useState}  from 'react';
             // alert('enter key pressed === performed a search') 
           
              props.searchCallback(searchText)  
-
           }
-
          }
        const handleOnChange = (e) => {
         //update search text state
         setSearchText(e.target.value)
        } 
-    
+       
     return  <>
          <input
           onKeyDown={handleKeyDown}
