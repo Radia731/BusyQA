@@ -1,32 +1,26 @@
-//////------imports------//////
 import {useState, useEffect}  from 'react';
 import SearchPanel from "./SearchPanel"
 import CryptoCard from "./CryptoCard";
+import { coinMarketCapApiKey, coinMarketCapApiurl } from '../common/constants'
 
-
-const coinMarketCapApiKey = 'e4d176e0-adfb-41ab-82d4-f67a95893eac'
-const coinMarketCapApiurl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
 const CryptoDashboard = () => {
   
     const [coinData, setCoinData] = useState([]);
     const [filterData, setFilterData] = useState([])
     const [sortType, setSortType] = useState(["market_cap"])
-    const [isLoading, setisLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
   const handleSortType = (sortType) => {
-
       console.log(`sort type changeed... ${sortType}`)
 
        setSortType(sortType)
 
   }
 
-    const handleSearch = (searchText) => {
-     
+    const handleSearch = (searchText) => {    
       if (searchText === "") {
-
         alert(`Enter a crypto coin to search`)
 
         setFilterData(coinData);
@@ -34,11 +28,15 @@ const CryptoDashboard = () => {
       }
   //filtering the coins 
  
-     const filtered = coinData?.filter((coin) =>
-      coin.name.toLowerCase().includes(searchText.toLowerCase())
-        
-        );
-      setFilterData(filtered)
+     const filterCoins = coinData?.filter(coin =>coin.name.toLowerCase().includes(searchText.toLowerCase()))
+              .sort((a,b) => {
+                    const aValue = a.qoute.USD[sortType];
+                    const bValue = b.qoute.USD[sortType];
+                    return bValue - aValue;
+              });
+              console.log(filterCoins)
+
+              setFilterData(filterCoins);
 
   }
 
@@ -46,50 +44,31 @@ const CryptoDashboard = () => {
 
     console.log(`component mounted...`)
 
-    fetchData();
+      fetchServerCoinData();
+    // fetchCoinData();
   }, [])
 
-  const fetchData = async() => {
+  const fetchServerCoinData = async() => {
 
-    console.log(`fetch data...`);
+    console.log(`fetch server data...`)
+    
+    try {
+        const response = await fetch(`http://localhost:3000/cryptocoins`);
 
-     try {
-
-      const response = await fetch(coinMarketCapApiurl, {
-
-        headers: {
-          
-          'X-CMC_PRO_API_KEY': coinMarketCapApiKey
-
-        },
-        params: {
-          start: 1,
-          limit: 10,
-          Convert: 'USD'
-
+        if(!response.ok){
+          throw new Error(`there was an error loading the data...`)
         }
-      }) ;
+          const rawData = await response.json();    
+              console.log(`coin market data: ${JSON.stringify(rawData)}`)
+                  setCoinData(rawData);
+                  setFilterData(rawData);
+    } catch (error) {
+         setError(error)
+    }
+   finally {
+        setIsLoading(false)
+   } 
 
-    if(!response.ok){
-        throw new Error (`there was an error loading the data...`)
-      }
-        const rawData = await response.json();    
-             console.log(`coin market data ${JSON.stringify(rawData)}`)
-                setCoinData(rawData.data);
-                setFilterData(rawData.data);
-     }
-
-     
-     catch (error) {
-        setError(error)
-
-     }
-
-     finally {
-      
-      setisLoading(false)
-       
-     } 
   }
 
   if (isLoading){
@@ -124,4 +103,4 @@ const CryptoDashboard = () => {
   
 
 
-  // `${coinMarketCapApiurl}?${params}`
+ 

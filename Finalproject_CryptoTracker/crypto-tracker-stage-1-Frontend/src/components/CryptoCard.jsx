@@ -1,6 +1,5 @@
-
-
 const CryptoCard = (props) => {
+    console.log(`card data ${JSON.stringify(props)}`)
 
     const handleAddWatchList = () => {
         alert(`Add to watchlist`)
@@ -14,11 +13,11 @@ const CryptoCard = (props) => {
                   
                 />
                 <h2>{props.name}</h2>
-                <p>Current Price:{props.quote.USD.price.toFixed(2)}</p>
-                <p> Market Cap:{props.quote.USD.market_cap.toLocaleString()} </p>
-                <p>24h Volume:{props.quote.USD.volume_24h.toLocaleString()}  </p>
-                <p>24h Change:{props.quote.USD.percent_change_24h.toLocaleString()}</p>
-                <button onClick={handleAddWatchList}> Add to watchList</button>
+                <p>Current Price: ${props.price.toFixed(2)}</p>
+            <p>Market Cap: ${props.marketCap.toLocaleString()}</p>
+            <p>24h Volume: ${props.volume24h.toLocaleString()}</p>
+            <p>24h Change: {props.change24h.toFixed(2)}%</p>
+            <button onClick={handleAddWatchList}>Add to watchList</button>
             </div>
 
     </>

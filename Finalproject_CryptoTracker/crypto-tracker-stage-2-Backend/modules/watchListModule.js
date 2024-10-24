@@ -1,5 +1,5 @@
 const WatchItem= require('../models/watchItem')
-
+const { getCryptocoins } = require('./cryptoCoinModule')
 const addItem = async (symbol) => {
     //error handling 
     try {
@@ -44,9 +44,16 @@ const removeItem = async (symbol) => {
 
 const getItems = async () => {
     try {
-        
-        const items = await WatchItem.find({})
-        return items;
+        console.log(`watchlist items fetched`)
+        const coins = await getCryptocoins();
+
+        const watchItems = await WatchItem.find({})
+
+        const watchSymbols = watchItems.map(item => item.symbol)
+
+        const filteredCoinData = coins.filter(coin => watchSymbols.includes(coin.symbol))
+
+        return filteredCoinData;
     
     } 
     catch (err) {
