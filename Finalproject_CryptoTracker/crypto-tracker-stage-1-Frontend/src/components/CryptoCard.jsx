@@ -13,11 +13,14 @@ const CryptoCard = (props) => {
                   
                 />
                 <h2>{props.name}</h2>
-                <p>Current Price: ${props.price.toFixed(2)}</p>
+
+            <p>Current Price: ${props.price.toFixed(2)}</p>
             <p>Market Cap: ${props.marketCap.toLocaleString()}</p>
             <p>24h Volume: ${props.volume24h.toLocaleString()}</p>
             <p>24h Change: {props.change24h.toFixed(2)}%</p>
-            <button onClick={handleAddWatchList}>Add to watchList</button>
+            
+            <button onClick={handleAddWatchList} style={{borderRadius: "5px", backgroundColor: props.isWatched ? "lightblue" : ""}}
+            disabled={!props.isWatched}>Add to watchList </button>
             </div>
 
     </>

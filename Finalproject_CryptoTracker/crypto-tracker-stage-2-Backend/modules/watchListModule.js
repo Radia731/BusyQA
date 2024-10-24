@@ -1,15 +1,25 @@
-const WatchItem= require('../models/watchItem')
+const { getWatchItemSymbols } = require('./mongooseModule')
 const { getCryptocoins } = require('./cryptoCoinModule')
+
+// const getWatchItemSymbols = async () =>{
+
+//     const watchItems = await WatchItem.find({});
+
+//     const watchSymbols = watchItems.map(item => item.symbol)
+
+//     return watchSymbols;
+
+// }
 const addItem = async (symbol) => {
     //error handling 
     try {
-    if(!symbol){
-        console.log(`symbol is not valid`)
-    }
+        if(!symbol){
+            console.log(`symbol is not valid`)
+        }
 
-    console.log(`item ${symbol} added to watchlist`)
+        console.log(`item ${symbol} added to watchlist`)
 
-    const item = new WatchItem({
+        const item = new WatchItem({
         symbol: symbol,
         dateCreated: Date.now()
     })
@@ -45,11 +55,10 @@ const removeItem = async (symbol) => {
 const getItems = async () => {
     try {
         console.log(`watchlist items fetched`)
+
         const coins = await getCryptocoins();
 
-        const watchItems = await WatchItem.find({})
-
-        const watchSymbols = watchItems.map(item => item.symbol)
+        const watchSymbols = await getWatchItemSymbols();
 
         const filteredCoinData = coins.filter(coin => watchSymbols.includes(coin.symbol))
 
@@ -66,5 +75,6 @@ const getItems = async () => {
 module.exports = {
     addItem,
     removeItem,
-    getItems
+    getItems,
+    
 }

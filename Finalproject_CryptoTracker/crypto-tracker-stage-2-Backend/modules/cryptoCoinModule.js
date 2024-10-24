@@ -1,4 +1,5 @@
 const { coinMarketCapApiKey, coinMarketCapApiurl } = require('./configModule')
+const { getWatchItemSymbols } = require('./mongooseModule')
 
 const getCryptocoins = async() => {
 console.log(`fetching from coinmarketcap`)
@@ -29,11 +30,23 @@ console.log(`fetching from coinmarketcap`)
                 price: coin.quote?.USD?.price || 0, 
                 marketCap: coin.quote?.USD?.market_cap || 0,
                 volume24h: coin.quote?.USD?.volume_24h || 0,
-                change24h: coin.quote?.USD?.percent_change_24h || 0,
+                change24h: coin.quote?.USD?.percent_change_24h || 0
+
             }
         })
+        
+        // const getWatchListSymbols = await getWatchItemSymbols();
 
-        return dtoData;
+        const watchSymbols = await getWatchItemSymbols();
+
+        const watchedDtoData = dtoData.map(coin => ({
+
+            ...coin,
+
+            isWatched: watchSymbols.includes(coin.symbol)
+        }))
+
+        return watchedDtoData;
 
     } catch (ex) {
         console.log(ex)
