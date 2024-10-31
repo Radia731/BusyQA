@@ -1,0 +1,77 @@
+:root {
+    background-color: cornsilk;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  .WelcomeBg {
+    text-align: center;
+    max-width: 1200px; 
+    margin: 0 auto;
+  }
+  
+  .WelcomeBg h1 {
+    color: darkolivegreen;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .pet-card {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .pet-card > div {
+    text-align: center;
+    flex: 1 1 200px; /* Each card will take at least 200px and expand if there's space */
+    max-width: 250px; /* Limits the width of each card */
+  }
+  .pet-card > div > h2 {
+    color: rgb(157, 129, 133);
+  }
+  
+  .pet-card img {
+    width: auto;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 0.5px solid rgb(174, 228, 11);
+    object-fit:contain;
+  }
+  
+
+  @media (max-width: 768px) {
+    .WelcomeBg h1 {
+      font-size: 2.5rem;
+    }
+  
+    .pet-card {
+      flex-direction: column; 
+      align-items: center; 
+    }
+  
+    .pet-card > div {
+      max-width: 100%; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .WelcomeBg h1 {
+      font-size: 2rem;
+    }
+  
+    .pet-card img {
+      max-width: 120px; 
+    }
+  }
+  
