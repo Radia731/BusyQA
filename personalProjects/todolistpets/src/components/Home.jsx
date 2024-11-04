@@ -10,19 +10,19 @@ function  Home() {
         <div className="pet-card">
                 <div className="Dog-card">
                     <Link to="/DOG" >
-                    <img src="https://www.pngall.com/wp-content/uploads/10/Pet-PNG-Images.png" alt="mrweston" />
+                    <img src="https://www.pngall.com/wp-content/uploads/10/Pet-PNG-Images.png" alt="dogphoto" />
                      </ Link>
                      <h2> Weston</h2>
                 </div>
                 <div className="cat-card">
                     <Link to="/CAT">
-                     <img src="https://stickershop.line-scdn.net/stickershop/v1/product/23701012/LINEStorePC/main.png?v=1" alt="missgowrl" />
+                     <img src="https://stickershop.line-scdn.net/stickershop/v1/product/23701012/LINEStorePC/main.png?v=1" alt="catphoto" />
                     </ Link>
                     <h2> Aliya</h2>
                 </div>
                  <div className="bunny-card">
                      <Link to="/BUNNY" >
-                     <img src="https://freepngimg.com/thumb/rabbit/7-2-rabbit-png-picture.png" alt="mrweston"  />
+                     <img src="https://freepngimg.com/thumb/rabbit/7-2-rabbit-png-picture.png" alt="bunnyphoto"  />
                      </ Link>
                      <h2> Tpain</h2>
                 </div>

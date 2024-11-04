@@ -30,7 +30,7 @@ function TodoList(){
     return (
     <>
         <div>
-         <h3> Daily Duty</h3>
+         <h3> pet health </h3>
             <input 
                 type="text" 
                 placeholder="add a duty"
