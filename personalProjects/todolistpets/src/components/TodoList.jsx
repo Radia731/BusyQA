@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
+
 function TodoList(){
   const [ newTask , setNewTask] = useState("") // to add a new task
-  const [tasks, setTasks] = useState(["wash the dogs", "fill up the water cup"]) //to store the tasks
+  const [tasks, setTasks] = useState([]) //to store the tasks
   const [isEditing, setIsEditing]= useState(null) // to track the task that's being edited 
   const [editedTask, setEditedTask]= useState("") // to store edited tasks
 
@@ -55,6 +56,9 @@ function TodoList(){
             </li>
         )}
         </ol>    
+
+  
+
 
     </>
     )

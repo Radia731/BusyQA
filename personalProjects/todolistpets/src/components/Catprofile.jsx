@@ -1,27 +1,20 @@
 import TodoList from "./TodoList.jsx"
+import { useEffect, useState } from "react";
+import PetGeneralInfo from "./GeneralInfo.jsx"
+import SideBar from "./Sidebar.jsx"
+import Petprofile from "./PetProfile.jsx"
 
 function Catprofile() {
 
     return (
+   
         <>
-         <div className="catLeftProfileContainer">
-                <div className="catProfilePic">
-                    <img 
-                        src="https://stickershop.line-scdn.net/stickershop/v1/product/23701012/LINEStorePC/main.png?v=1" 
-                        alt="missgowrl" 
-                    />
-                </div>
-                
+            
+            return < Petprofile petType="cat"/>
 
-            </div>
+         </>
 
-            <div>
-                <h1>Cat Page</h1>
-                <TodoList />
-            </div>
-        
-        
-        </> 
+
 
     )
  

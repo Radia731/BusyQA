@@ -1,20 +1,17 @@
 import TodoList from "./TodoList.jsx"
-function Dogprofile() {
+import { useEffect, useState } from "react";
+import PetGeneralInfo from "./GeneralInfo.jsx"
+import SideBar from "./Sidebar.jsx"
+import Petprofile from "./PetProfile.jsx"
 
+
+
+function Dogprofile() {
     return (
         <>
+    
+                 <Petprofile petType="dog" />
 
-         <div className="dogLeftProfileContainer">
-            <div className="dogProfilePic">
-                    <img src="https://www.pngall.com/wp-content/uploads/10/Pet-PNG-Images.png" alt="mrweston" />
-            </div>
-         </div>
-        
-         <div>
-              <h1>Cat Page</h1>
-                <TodoList />
-         </div>
-        
         </>
     )
  

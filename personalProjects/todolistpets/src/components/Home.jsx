@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import AddPet from "./AddPets.jsx"
 
 function  Home() {
    
@@ -20,15 +21,21 @@ function  Home() {
                     </ Link>
                     <h2> Aliya</h2>
                 </div>
-                 <div className="bunny-card">
-                     <Link to="/BUNNY" >
-                     <img src="https://freepngimg.com/thumb/rabbit/7-2-rabbit-png-picture.png" alt="bunnyphoto"  />
-                     </ Link>
-                     <h2> Tpain</h2>
-                </div>
         
             
         </div>
+        
+
+        <div>
+            
+            <Link to ="/ADDPET">
+            <button className="addPetbn"> <i class="fa-solid fa-paw"> </i>
+            <span>  Add a new Pet </span>
+
+        </button>
+        </ Link>
+        </div>
+
 
         </div>
     )

@@ -4,7 +4,6 @@ function Navigation(){
     return (
         <>
         <nav className="Navigation-Container">
-            
 
         </nav>
         </>
