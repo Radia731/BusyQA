@@ -13,6 +13,7 @@ function PetGeneralInfo( {name, age, breed, weight}) {
         <ul>
             <p>Name: {name}</p>
             <p>Age: {age}</p>
+            <p>Gender: {gender}</p>
             <p>Breed: {breed}</p>
             <p>Weight: {weight}</p>
           </ul>

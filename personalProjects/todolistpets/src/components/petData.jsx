@@ -9,12 +9,14 @@ export const PET_INFO = {
     dog: {
         name: "Mr. Weston",
         age: "3 years",
+        gender: "male",
         breed: "Golden Retriever",
         weight: "70 lbs",
     },
     cat: {
         name: "Miss Kitty",
         age: "2 years",
+        gender: "female",
         breed: "Persian",
         weight: "10 lbs",
     }

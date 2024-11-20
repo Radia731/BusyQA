@@ -16,7 +16,7 @@ function Petprofile({petType}) {
 
     }
     
-    const { name, age, breed, weight } = PET_INFO[petType];
+    const { name, age, gender, breed, weight } = PET_INFO[petType];
 
 
 
@@ -35,6 +35,7 @@ function Petprofile({petType}) {
                   name = {name}
                   age={age}
                   breed={breed}
+                  gender={gender}
                   weight={weight}
                   />)}
 
